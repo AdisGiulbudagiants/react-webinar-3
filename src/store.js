@@ -53,6 +53,7 @@ class Store {
         {
           code: (Math.pow(this.state.list.length, 3) / 8).toFixed(),
           title: "Новая запись",
+          countClicks: 0,
         },
       ],
     })
