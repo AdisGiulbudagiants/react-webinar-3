@@ -27,8 +27,3 @@ export function createElement(name, props = {}, ...children) {
   return element
 }
 
-// function randomNum() {
-//   return Math.floor(Math.random() * 1000)
-// }
-
-// console.log(randomNum())

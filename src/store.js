@@ -44,14 +44,10 @@ class Store {
   addItem() {
     this.setState({
       ...this.state,
-      // list: [
-      //   ...this.state.list,
-      //   { code: this.state.list.length + 1, title: "Новая запись" },
-      // ],
       list: [
         ...this.state.list,
         {
-          code: (Math.pow(this.state.list.length, 3) / 8).toFixed(),
+          code: Math.floor(Math.random() * 9876),
           title: "Новая запись",
           countClicks: 0,
         },

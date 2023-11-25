@@ -10,6 +10,22 @@ import "./styles.css"
 function App({ store }) {
   const list = store.getState().list
 
+  function nounForm(number, text) {
+    number = Math.abs(number)
+
+    if (number % 10 === 1 && number % 100 !== 11) {
+      return text[0]
+    } else if (
+      number % 10 >= 2 &&
+      number % 10 <= 4 &&
+      (number % 100 < 10 || number % 100 >= 20)
+    ) {
+      return text[1]
+    } else {
+      return text[0]
+    }
+  }
+
   return (
     <div className="App">
       <div className="App-head">
@@ -32,7 +48,11 @@ function App({ store }) {
                 <div className="Item-title">
                   {item.countClicks === 0
                     ? item.title
-                    : item.title + ` | Выделяли ${item.countClicks} раз`}
+                    : item.title +
+                      ` | Выделяли ${item.countClicks} ${nounForm(
+                        item.countClicks,
+                        ["раз", "раза"]
+                      )}`}
                 </div>
                 <div className="Item-actions">
                   <button onClick={() => store.deleteItem(item.code)}>
